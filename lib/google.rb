@@ -1,4 +1,4 @@
-require '../lib/utility'
+require 'utility'
 
 module Google
 
