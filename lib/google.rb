@@ -1,23 +1,23 @@
-require 'lib/util'
+require '/lib/util'
 
 module Google
 
-  ################################################################################
+################################################################################
 
-  protected
+protected
   def self.resolve_location location_string
     location_string = CGI::escape location_string
     url = URI.parse("http://maps.google.com/")
     res = Net::HTTP.start(url.host, url.port) { |http| 
       http.get("/maps/geo?q=#{location_string}&" + 
-          "sensor=true&" +
-          "key=ABQIAAAA2NOo93VS7djjvzZXCw3a3xRiuOlZacYj2HhhRbgtYRUU3MBeuxTDhLyykdgMFsUGXHp35r8B6WL_DQ&" +
-          "output=xml&oe=utf8")
+        "sensor=true&" + 
+        "key=ABQIAAAA2NOo93VS7djjvzZXCw3a3xRiuOlZacYj2HhhRbgtYRUU3MBeuxTDhLyykdgMFsUGXHp35r8B6WL_DQ&" + 
+        "output=xml&oe=utf8") 
     }
     res.body
   end
 
-  ################################################################################
+################################################################################
 
   def self.resolve_address lon, lat
     url = URI.parse("http://maps.google.com/")
@@ -27,7 +27,7 @@ module Google
     res.body
   end
 
-  ################################################################################
+################################################################################
 
   def self.read_locations xml_tree
     ret = []
@@ -47,7 +47,7 @@ module Google
     ret
   end
 
-  ################################################################################
+################################################################################
 
   def self.read_address xml_tree
     # puts xml_tree.inspect
@@ -58,14 +58,14 @@ module Google
     nil
   end
 
-  ################################################################################
+################################################################################
 
-  public
+public
   def self.locations_lon_lat location_string
     read_locations(Util.parse_xml(resolve_location(location_string)))
   end
 
-  ################################################################################
+################################################################################
 
   def self.locations_address lon, lat
     read_address(Util.parse_xml(resolve_address(lon, lat)))
