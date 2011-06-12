@@ -39,7 +39,14 @@ Website::Application.configure do
 
   # Enable threaded mode
   # config.threadsafe!
-
+  ActionMailer::Base.smtp_settings = {
+    :address => 'smtp.gmail.com',
+    :port => 587,
+    :domain => 'mydomain.com',
+    :authentication => :plain,
+    :user_name => 'mr.hamid.raza@gmail.com',
+    :password => 'inuhoney123$%^'
+  } 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
