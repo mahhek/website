@@ -5,13 +5,13 @@ class CreateRoles < ActiveRecord::Migration
 
       t.timestamps
     end
-    Role.save(:name => "Admin")
-    Role.save(:name => "Staff")
-    Role.save(:name => "Coach")
-    Role.save(:name => "Composer")
-    Role.save(:name => "Business")
-    Role.save(:name => "Venue")
-    Role.save(:name => "School")
+    Role.new(:name => "Admin").save
+    Role.new(:name => "Staff").save
+    Role.new(:name => "Coach").save
+    Role.new(:name => "Composer").save
+    Role.new(:name => "Business").save
+    Role.new(:name => "Venue").save
+    Role.new(:name => "School").save
 
   end
 

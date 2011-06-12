@@ -7,7 +7,7 @@ gem 'rails', '3.0.7'
 gem 'pg'
 gem 'mysql2', '< 0.3'
 gem 'devise'
-gem 'rake', '0.8.7'
+gem 'rake', '0.9.2'
 gem 'cancan'
 gem 'friendly_id'
 gem 'paperclip'
@@ -21,6 +21,7 @@ gem 'sanitize'
 gem 'geokit'
 gem 'crack'
 gem 'taps'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
