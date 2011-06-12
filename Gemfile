@@ -20,6 +20,7 @@ gem 'uuidtools'
 gem 'sanitize'
 gem 'geokit'
 gem 'crack'
+gem 'taps'
 
 # Use unicorn as the web server
 # gem 'unicorn'
