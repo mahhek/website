@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  require 'lib/util'
-  require 'lib/google'
+  require 'util'
+  require 'google'
   protect_from_forgery
 end
