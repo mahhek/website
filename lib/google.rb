@@ -1,4 +1,4 @@
-require '/lib/util'
+require '/lib/utility'
 
 module Google
 
@@ -62,12 +62,12 @@ protected
 
 public
   def self.locations_lon_lat location_string
-    read_locations(Util.parse_xml(resolve_location(location_string)))
+    read_locations(Utility.parse_xml(resolve_location(location_string)))
   end
 
 ################################################################################
 
   def self.locations_address lon, lat
-    read_address(Util.parse_xml(resolve_address(lon, lat)))
+    read_address(Utility.parse_xml(resolve_address(lon, lat)))
   end
 end
