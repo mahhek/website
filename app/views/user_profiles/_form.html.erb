@@ -1,0 +1,17 @@
+<%= semantic_form_for @user_profile, :html => { :multipart => true, :id => "edit_location" } do |f| %>
+  <h1><%= title %></h1>
+  <% f.inputs do %>
+    <% @user_profile.build_location if !@user_profile.location %>
+    <%= f.fields_for :location do |builder| %>
+      <%= render "locations/location_fields", :f => builder %>
+    <% end %>
+
+    <%= f.input :picture, :as => :file %>
+
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+

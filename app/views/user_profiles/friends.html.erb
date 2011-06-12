@@ -1,0 +1,29 @@
+<div style="float: left;padding: 5px;">
+  <h2><%= t(:my_friends) %></h2>
+  <ul>
+    <%unless @user.friends.blank?%>
+      <% @user.friends.each do |friend| %>
+        <li style="list-style: square;">
+          <%= link_to friend.user_profile.name, user_profile_path(friend.user_profile) %>
+        </li>
+      <% end %>
+    <%end%>
+  </ul>
+  <h2><%= t(:sent_invitations) %></h2>
+  <ul>
+    <% @invites_out.each do |invite| %>
+      <li><%= link_to invite.user_target.user_profile.name, user_profile_path(invite.user_target.user_profile) %>
+        <%= link_to t(:cancel_invitation), user_profile_invite_path(invite.user_target.user_profile,current_user.user_profile), :method => "delete", :confirm => "Are you sure?", :class => 'blue' %>
+      </li>
+    <% end %>
+  </ul>
+  <h2><%= t(:received_invitations) %></h2>
+  <ul>
+    <% @invites_in.each do |invite| %>
+      <li><%= link_to invite.user.user_profile.name, user_profile_path(invite.user.user_profile) %>
+        <%= link_to t(:accept_invitation), "http://#{SITE_URL}/invitation/#{invite.code}", :class => 'blue'%>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

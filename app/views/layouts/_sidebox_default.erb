@@ -1,0 +1,21 @@
+
+<% if user_signed_in? %>
+  <div style="float: left;width: 100%;border: 1px solid #c5ddfc;">
+
+    <div>
+      <% if !current_user.user_profile.nil? %>
+        <%= link_to(image_tag(current_user.user_profile.picture.url(:'70')), user_profile_path(current_user.user_profile)) %>
+      <% else %>
+        <%= link_to(image_tag('/images/profile/missing_70.png'), user_profile_path(current_user.user_profile)) %>
+      <% end %>
+    </div>
+
+
+    <ul>
+      <li style="list-style: square;"><%= link_to "Friends", "#"%></li>
+      <li style="list-style: square;"><%= link_to "Modify my profile", edit_user_profile_path(current_user.user_profile) %></li>
+      <li style="list-style: square;"><%= link_to "Settings",  settings_path %></li>
+      <li style="list-style: square;"><%= link_to "Sign out", destroy_user_session_path %></li>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<div>
+  <div>
+    <span alt="<%= @user_profile.name %>">
+      <%= image_tag @user_profile.picture.url(:'150') %>
+    </span>
+  </div>
+  <div>
+    <h1>
+      <%= @user_profile.name %>
+      <% if (current_user.id.to_s == @user_profile.user_id.to_s) %>
+        <span><%= "This is you" %></span>
+      <% end %>
+    </h1>
+    <p>
+      <%=  @user_profile.user.roles.collect(&:name).to_sentence if (@user_profile.user.roles.size > 0) %>
+      <%= if !@user_profile.user.user_profile.location.nil?
+        "(#{@user_profile.user.user_profile.location.city})"
+      end   %></p>
+  </div>
+</div>

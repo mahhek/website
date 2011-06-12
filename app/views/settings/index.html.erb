@@ -1,0 +1,8 @@
+<div>
+  <h1><%= "Settings" %></h1>
+  <h2><%= "Account" %></h2>
+  <ul>
+    <li><%= link_to "Basic account settings",  edit_user_registration_path %> ( Email And Password )</li>
+    <li><%= link_to "Cancel my account", registration_path(current_user), :confirm => "Are you sure?", :method => :delete %></li>
+  </ul>
+</div>

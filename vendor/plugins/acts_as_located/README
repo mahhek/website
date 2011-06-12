@@ -1,0 +1,11 @@
+= ActsAsLocated
+=============
+
+Plugin to locate models using GeoKit
+
+Any model can be located from an address using GeoKit geocoders.
+
+= Installation
+
+rails g comment
+rake db:migrate

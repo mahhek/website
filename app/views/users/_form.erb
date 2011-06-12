@@ -1,0 +1,21 @@
+<% semantic_form_for @user do |t| %>
+  <%= t.error_messages %>
+  <ul>
+    <li>
+      <%= t.label 'email' %>
+      <%= t.text_field 'email' %>
+    </li>
+    <li>
+      <%= t.label 'password' %>
+      <%= t.password_field 'password' %>
+    </li>
+    <li>
+      <%= t.label 'password_confirmation' %>
+      <%= t.password_field 'password_confirmation' %>
+    </li>
+  </ul>
+  <div>
+    <%= t.submit 'signup' %>
+  </div>
+
+<% end %>

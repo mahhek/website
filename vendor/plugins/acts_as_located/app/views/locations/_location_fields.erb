@@ -1,0 +1,24 @@
+<% input_id = 'z_geocomplete_address_' + f.object_id.to_s %>
+
+<% input_html = { :class => input_id, :style => "width:500px;" } %>
+<% wrapper_html ||= {} %>
+<%= f.input :address, :input_html => input_html, :wrapper_html => wrapper_html, :required => true %>
+<div id="location_advanced_container">
+  <div id="location_advanced" style="display:none;">
+    <%= f.label(:longitude, "Coordinates") %>
+    <%= f.text_field :longitude, :class => 'required two-side-by-side' %>
+    <%= f.text_field :latitude , :class => 'required two-side-by-side second'%><br />
+    <div class="small-hint"><%= "first small hint" %></div>
+
+    <div class="small-hint"><%= "second small hint" %></div>
+  </div>
+  <div class="small">
+    <a href="javascript:void(0);" id="location_advanced_link"><%= "Advance Settings" %></a>
+  </div>
+</div>
+
+<script type="text/javascript">//  <![CDATA[
+  jQuery(document).ready(function(){
+    $().geocompleteInitialize("<%= input_id %>");
+  });
+  //  ]]></script>
