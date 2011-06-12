@@ -4,7 +4,7 @@ class AuthorizationController < ApplicationController
 
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "You don't have the permission to access this page"
+    flash[:notice] = "You don't have the permission to access this page"
     redirect_to root_url
   end
 end

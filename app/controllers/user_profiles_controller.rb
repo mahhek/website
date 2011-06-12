@@ -1,6 +1,5 @@
 class UserProfilesController < AuthorizationController
   
-  before_filter :logged_in, :only => ['invite_a_friend', 'friends', 'make_friends']
   def index
     @user_profiles = UserProfile.all
 

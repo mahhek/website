@@ -2,12 +2,12 @@ Website::Application.routes.draw do
   get "home/index"
 
   resources :roles
-
+  resources :user_profiles
   devise_for :users, :path_names => { :sign_in => 'signin', :sign_out => 'signout', :sign_up => 'register' }, :controllers => { :registrations => "registrations" }
   devise_scope :user do match 'users/signup/:invite_token' => 'registrations#new', :as => 'invite_signup_path' end
   resources :users
   match 'settings' => 'settings#index', :as => 'settings'
-  resources :user_profiles
+  
   namespace :xml do
     match 'location_search.xml' => 'LocationSearch#index', :format => :xml
     match 'address_search.xml'  => 'AddressSearch#index' , :format => :xml
