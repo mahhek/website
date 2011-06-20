@@ -36,10 +36,9 @@ class UserProfilesController < AuthorizationController
     location = @user_profile.location
     if location
       coordinates = [location.latitude,location.longitude]
-      @map.center_zoom_init(coordinates, 14)
+      @map.center_zoom_init(coordinates, 6)
       @map.overlay_init(GMarker.new(coordinates,:title => @user_profile.user.first_name, :info_window => "Info! Info!"))
-
-      #      @map.center_zoom_init([52.52, 13.4], 14)
+      
 
     else
       @map.center_zoom_init([52.52, 13.4], 14)
