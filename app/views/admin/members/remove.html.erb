@@ -1,0 +1,10 @@
+<h2>Remove <%= @member.email %></h2>
+
+<%= form_for [:admin, @member], :url => admin_member_path, :html => { :method => :delete } do | form | %>
+  <div>
+    <p>Are you sure you would like to permanently delete <%= @member.email %>?</p>
+  </div>
+  <p>
+      <%= submit_tag "Delete" %> or <%= link_to 'Cancel', admin_members_path %>
+  </p>
+<% end %>

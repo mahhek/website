@@ -1,0 +1,20 @@
+<h2>Members</h2>
+
+<div class="link_button"><%= link_to "Add a member", new_admin_member_path%> </div>
+
+<div>
+
+  <% form_tag admin_members_path, :method => :get do %>
+    <input type="search" name="search_for" id="search_for" value="<%= params[:search_for] %>" placeholder="Search for non-registered members"/>
+    <input type="submit" value="Search"/>
+  <% end %>
+</div>
+
+  <% @members.each do | member | %>
+    <%= link_to member.email, edit_admin_member_path(member) %>
+    <%= member.first_name %>
+<%= member.last_name %>
+<br/>
+  <% end %>
+
+<%= will_paginate @members %>

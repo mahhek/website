@@ -10,7 +10,60 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531161827) do
+ActiveRecord::Schema.define(:version => 20110623210710) do
+
+  create_table "audio_attachments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "businesses", :force => true do |t|
+    t.string   "name"
+    t.boolean  "enable",     :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "businesses_users", :id => false, :force => true do |t|
+    t.integer "business_id"
+    t.integer "user_id"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres", :force => true do |t|
+    t.string   "name"
+    t.boolean  "enable",     :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres_users", :id => false, :force => true do |t|
+    t.integer "genre_id"
+    t.integer "user_id"
+  end
+
+  create_table "instruments", :force => true do |t|
+    t.string   "name"
+    t.boolean  "enable",     :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "instruments_users", :id => false, :force => true do |t|
+    t.integer "instrument_id"
+    t.integer "user_id"
+  end
 
   create_table "locations", :force => true do |t|
     t.string   "address"
@@ -60,6 +113,13 @@ ActiveRecord::Schema.define(:version => 20110531161827) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "cached_slug"
+    t.string   "band_name"
+    t.string   "organization"
+    t.string   "country"
+    t.string   "postal_code"
+    t.string   "phone"
+    t.text     "about_us"
+    t.string   "referred_by"
   end
 
   create_table "users", :force => true do |t|

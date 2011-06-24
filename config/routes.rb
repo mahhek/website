@@ -6,6 +6,7 @@ Website::Application.routes.draw do
   devise_for :users, :path_names => { :sign_in => 'signin', :sign_out => 'signout', :sign_up => 'register' }, :controllers => { :registrations => "registrations" }
   devise_scope :user do match 'users/signup/:invite_token' => 'registrations#new', :as => 'invite_signup_path' end
   resources :users
+  resources :audio_attachments
   match 'settings' => 'settings#index', :as => 'settings'
   
   namespace :xml do
@@ -14,6 +15,13 @@ Website::Application.routes.draw do
   end
 
 
+  namespace :admin do
+    resources :members do
+      member do
+        get :remove
+      end
+    end
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

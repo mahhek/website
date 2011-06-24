@@ -1,0 +1,42 @@
+<%= semantic_form_for [:admin, @member], :url => admin_member_path(@member), :html => { :multipart => true}  do | form | %>
+  <%= form.inputs do %>
+    <%= form.input :first_name %>
+    <%= form.input :last_name %>
+    <%= form.input :email %>
+    <%= image_tag @member.user_profile.picture.url(:'70')%>
+
+    <%= form.input :instruments, :as => :check_boxes, :collection => Instrument.all %>
+    <%= form.input :genres, :as => :check_boxes, :collection => Genre.all %>
+    <%= form.input :businesses, :as => :check_boxes, :collection => Business.all %>
+    <%= fields_for :user_profile do |up| %>
+      <p><%= up.label :organization %><br/>
+        <%= up.text_field :organization %></p>
+      <p><%= up.label :band_name %><br/>
+        <%= up.text_field :band_name %></p>
+      <p><%= up.label :country %><br />
+        <%= up.select :country, options_from_collection_for_select(Country.all, "id", "code", Country.find_by_code("US").id) %></p>
+
+      <p><%= up.label :postal_code %><br />
+        <%= up.text_field :postal_code %></p>
+
+      <p><%= up.label :phone %><br />
+        <%= up.text_field :phone %></p>
+
+      <p><%= up.label :picture %><br />
+        <%= up.file_field :picture %></p>
+
+      <p><%= up.label :about_us %><br/>
+        <%= up.text_area :about_us %></p>
+
+      <p><%= up.label :referred_by %><br/>
+        <%= up.text_field :referred_by %></p>
+    <%end%>
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button 'Save' %>
+    <%if current_user.role?("Admin")%>
+      <%= link_to "Delete Account", remove_admin_member_path(@member)  %>
+    <%end%>
+  <% end %>
+<% end %>

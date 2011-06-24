@@ -118,6 +118,7 @@ GEM
     uuidtools (2.1.2)
     warden (1.0.4)
       rack (>= 1.0)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -140,3 +141,4 @@ DEPENDENCIES
   sanitize
   taps
   uuidtools
+  will_paginate (~> 3.0.pre2)

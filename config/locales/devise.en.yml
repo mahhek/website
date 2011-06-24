@@ -32,7 +32,7 @@ en:
       confirmed: 'Your account was successfully confirmed. You are now signed in.'
     registrations:
       signed_up: 'Welcome! You have signed up successfully.'
-      need_role_selection: 'Please select your role, thnaks.'
+      need_role_selection: 'Please select your role'
 
       inactive_signed_up: 'You have signed up successfully. However, we could not sign you in because your account is %{reason}.'
       updated: 'You updated your account successfully.'

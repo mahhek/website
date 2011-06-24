@@ -7,8 +7,7 @@ class CreateRoles < ActiveRecord::Migration
     end
     Role.new(:name => "Admin").save
     Role.new(:name => "Staff").save
-    Role.new(:name => "Coach").save
-    Role.new(:name => "Composer").save
+    Role.new(:name => "Musician").save
     Role.new(:name => "Business").save
     Role.new(:name => "Venue").save
     Role.new(:name => "School").save

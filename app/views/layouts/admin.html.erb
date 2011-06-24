@@ -1,0 +1,12 @@
+<%= render 'layouts/header' %>
+<div style="float: left;text-align: left;width: 100%;height: 25px;margin-top: 5px;">
+  <span style="float: left;width: auto;">
+    <%= link_to "Manage Members", admin_members_path%>
+    <%=link_to "Sign out", destroy_user_session_path %>
+  </span>
+
+</div>
+<div style="float: left;width: 75%;margin-left: 10px;">
+  <%= yield %>
+</div>
+

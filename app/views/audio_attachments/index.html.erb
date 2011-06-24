@@ -1,0 +1,32 @@
+<%= link_to "Add", new_audio_attachment_path %>
+<div>
+  <section id="song">
+    </section>
+
+</div>
+<table id="audio_attachments">
+
+  <tr>
+    <th>Name</th>
+    <th>Filename</th>
+    <th>Content type</th>
+    <th>Size</th>
+    <th>Created at</th>
+    <th>Actions</th>
+  </tr>	
+
+  <% @audio_attachments.each do |attachment| %>
+    <tr>
+      <td><%= attachment.name %></td>
+      <td><%= attachment.audio_file_name %></td>
+      <td><%= attachment.audio_content_type %></td>
+      <td><%= number_to_human_size(attachment.audio_file_size) %></td>
+      <td><%= attachment.created_at.to_s(:nice_time) %></td>
+      <td>
+        <%= link_to "Play", attachment.audio.url, :class => "play_song" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+

@@ -1,0 +1,15 @@
+<% form_for(:audio_attachment, 
+            :url => audio_attachments_path, 
+            :html => { :multipart => true }) do |f| %>
+
+	<p>Name:<br /><%= f.text_field 'name' %></p>
+  
+  <p>Select a mp3 file to upload<br />
+  <%= f.file_field :audio %></p>
+  
+  <p>
+    <%= submit_tag 'Upload' %> or 
+    <%= link_to 'cancel', audio_attachments_path %>
+  </p>
+  
+<% end %>

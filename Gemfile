@@ -21,7 +21,7 @@ gem 'sanitize'
 gem 'geokit'
 gem 'crack'
 gem 'taps'
-
+gem 'will_paginate', "~> 3.0.pre2"
 
 # Use unicorn as the web server
 # gem 'unicorn'
