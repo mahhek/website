@@ -1,6 +1,43 @@
 <%= semantic_form_for @user_profile, :html => { :multipart => true, :id => "edit_location" } do |f| %>
   <h1><%= title %></h1>
   <% f.inputs do %>
+    <%= f.input :organization unless current_user.role?("musician")%>
+    <%= f.input :band_name if current_user.role?("musician")%>
+    <li id="user_profile_country_input" class="string required">
+      <label for="user_profile_country">Country<abbr title="required">*</abbr></label>
+      <%= f.select :country, options_from_collection_for_select(Country.all, "id", "code", Country.find_by_code("US").id) %>
+    </li>
+    <%= f.input :postal_code%>
+    <%= f.input :phone%>
+    <%= f.input :about_us%>
+        <%= fields_for :user do |u| %>
+          <%if current_user.role?("musician")%>
+          Instruments:<br/>
+          <% Instrument.all.each do |i| %>
+              <%= check_box_tag "instruments[]", i.id, @user.instruments.include?(i) %>
+              <%= label_tag :instrument, i.name %>
+               <br/>
+            <%end%>
+            Genre:
+            <br/>
+               <% Genre.all.each do |g| %>
+                 <%= check_box_tag "genres[]", g.id,  @user.genres.include?(g) %>
+                 <%= label_tag :genre, g.name %>
+              <br/>
+               <% end %>
+             <%end%>
+
+             <%if current_user.role?("Business")%>
+             Businesses:
+             <br/>
+              <% Business.all.each do |b| %>
+                <%= check_box_tag "businesses[]", b.id,  @user.businesses.include?(b) %>
+                <%= label_tag :business, b.name %>
+              <br/>
+                <% end %>
+              <%end%>
+             <%end%>
+    
     <% @user_profile.build_location if !@user_profile.location %>
     <%= f.fields_for :location do |builder| %>
       <%= render "locations/location_fields", :f => builder %>

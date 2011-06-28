@@ -5,8 +5,8 @@ class UserProfile < ActiveRecord::Base
   has_friendly_id :name, :use_slug => true, :approximate_ascii => true
 
   validates :country, :presence => true
-  validates :band_name, :presence => true
-  validates :organization, :presence => true
+#  validates :band_name, :presence => true
+#  validates :organization, :presence => true
   
     acts_as_located
 

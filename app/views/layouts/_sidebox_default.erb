@@ -13,8 +13,10 @@
 
     <ul>
       <li style="list-style: square;"><%= link_to "Friends", "#"%></li>
-      <li style="list-style: square;"><%= link_to "Modify my profile", edit_user_profile_path(current_user.user_profile) %></li>
-      <li style="list-style: square;"><%= link_to "Audio", audio_attachments_path %></li>
+      <li style="list-style: square;"><%= link_to "My Account", edit_user_profile_path(current_user.user_profile) %></li>
+      <% if current_user.role?("musician")%>
+          <li style="list-style: square;"><%= link_to "Audio", audio_attachments_path%></li>
+      <%end%>
       <li style="list-style: square;"><%= link_to "Settings",  settings_path %></li>
       <li style="list-style: square;"><%= link_to "Sign out", destroy_user_session_path %></li>
     </ul>

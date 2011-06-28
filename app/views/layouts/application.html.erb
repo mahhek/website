@@ -1,31 +1,37 @@
-<%= render 'layouts/header' %>
-<div id="main-container">
-  <div>
-    <div style="margin-top: 5px;">
-      <%=link_to raw('<img  alt="LOGO"/>'), :root %>
-      <%= render 'layouts/navigation' %>
-    </div>
-    <% if notice or alert %>
-      <div style="padding-left: 10px;padding-top: 10px;width: 91%;float: left;height: 30px;margin: 10px;background-color: darkcyan;color: white;">
-        <div style="width: auto;float: left;"><%= notice %></div>
-        <div style="width: auto;float: left;"><%= alert %></div>
-      </div>
-    <% end %>
-  </div>
-  <div style="min-height: 480px;float: left;width: 100%;margin-bottom: 10px;">
-    <% unless user_signed_in? %>
-      <div style="float: left;text-align: left;width: 100%;height: 50px;">
-        <%= link_to "Sign up", new_user_registration_path %> <%=  "or" %>
-        <%= link_to "Sign in", new_user_session_path %>
-      </div>
-    <% end %>
-    <div style="float: left;width: 18%;">
-      <%= render 'layouts/sidebox_default' %>
-    </div>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Musociety</title>
 
-    <div style="float: left;width: 75%;margin-left: 10px;">
-      <%= yield %>
+
+    <%= stylesheet_link_tag "application", "jquery.ui", "style.css" %>
+    <%= javascript_include_tag 'jquery-1.5.2.min','jquery-validate-basic.js', 'jquery-ui-1.8.11.custom.min', 'application', 'http://maps.google.com/maps/api/js?sensor=false', 'rails', 'custom/geocomplete', 'custom/institution.js' %>
+    <%= GMap.header(:with_vml => false, :host => request.host).html_safe %>
+
+    <%= javascript_include_tag 'swfobject' %>
+    <%= javascript_include_tag 'jwplayer' %>
+
+    <%= yield :audio_player %>
+    <%= raw @map.to_html if @map%>
+    <%= csrf_meta_tag %>
+
+  </head>
+
+  <body class="home-bg-green">
+
+    <!-- cont -->
+    <div class="cont header-bg">
+
+      <div class="wrapper">
+
+        <%= render 'layouts/header' %>
+        <%= yield %>
+
+      </div>
     </div>
-  </div>
-  <%= render 'layouts/footer' %>
-</div>
+    <!-- /cont -->
+
+    <%= render 'layouts/footer' %>
+</body>
+</html>
+

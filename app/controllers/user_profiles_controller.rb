@@ -29,6 +29,7 @@ class UserProfilesController < AuthorizationController
 
   def edit    
     @user_profile = UserProfile.find(params[:id], :include => :location)
+    @user = @user_profile.user
     @map = GMap.new("map")
     @map.control_init(:map_type => true, :small_zoom => true)
     @map.set_map_type_init(GMapType::G_HYBRID_MAP)
@@ -61,16 +62,35 @@ class UserProfilesController < AuthorizationController
 
   def update
     @user_profile = UserProfile.find(params[:id])
-
-    respond_to do |format|
-      if @user_profile.update_attributes(params[:user_profile])
-        format.html { redirect_to(@user_profile, :notice => 'User profile was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @user_profile.errors, :status => :unprocessable_entity }
+    @user = @user_profile.user
+    if @user_profile.update_attributes(params[:user_profile])
+      unless params[:instruments].blank?        
+        params[:instruments].each do |instrument_id|
+          unless instrument_id.blank?
+            @user.instruments << Instrument.find_by_id(instrument_id)
+          end
+        end
       end
+      unless params[:genres].blank?
+        params[:genres].each do |genre_id|
+          unless genre_id.blank?
+            @user.genres << Genre.find_by_id(genre_id)
+          end
+        end
+      end
+      unless params[:businesses].blank?
+        params[:businesses].each do |business_id|
+          unless business_id.blank?
+            @user.businesses << Business.find_by_id(business_id)
+          end
+        end
+      end
+      redirect_to(@user_profile, :notice => 'User profile was successfully updated.')
+
+    else
+      render :action => "edit"     
     end
+   
   end
 
   def destroy
