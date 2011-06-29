@@ -57,4 +57,9 @@ class RegistrationsController < Devise::RegistrationsController
       render_with_scope :new
     end
   end
+
+  def members
+    @users = User.all.reject { |item| item.role?("Admin") or item.role?("Staff") or item == current_user }
+  end
+
 end

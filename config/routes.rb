@@ -1,13 +1,31 @@
-Website::Application.routes.draw do
+Musociety::Application.routes.draw do
   get "home/index"
 
   resources :roles
-  resources :user_profiles
+  resources :user_profiles do
+    resources :invites do
+      member do
+        get :add_network_invitation
+      end
+    end
+
+    collection do
+      post 'invite_a_friend'
+      get 'friends'
+      get 'make_friends'
+    end
+  end
+  get "registrations/create"
+
   devise_for :users, :path_names => { :sign_in => 'signin', :sign_out => 'signout', :sign_up => 'register' }, :controllers => { :registrations => "registrations" }
   devise_scope :user do match 'users/signup/:invite_token' => 'registrations#new', :as => 'invite_signup_path' end
-  resources :users
+  devise_scope :user do match 'users/members' => 'registrations#members', :as => 'members_path' end
+  
   resources :audio_attachments
   match 'settings' => 'settings#index', :as => 'settings'
+  match "invitation/:code" => 'invites#show', :as => 'invitation_link'
+  match 'invitation/accept/:code' => 'invites#accept', :as => 'accept_invitation'
+  match 'invitation/decline/:code' => 'invites#decline', :as => 'decline_invitation'
   
   namespace :xml do
     match 'location_search.xml' => 'LocationSearch#index', :format => :xml

@@ -4,15 +4,15 @@
     <title>Musociety</title>
 
 
-    <%= stylesheet_link_tag "application", "jquery.ui", "style.css" %>
+    <%= stylesheet_link_tag "application", "jquery.ui" %>
     <%= javascript_include_tag 'jquery-1.5.2.min','jquery-validate-basic.js', 'jquery-ui-1.8.11.custom.min', 'application', 'http://maps.google.com/maps/api/js?sensor=false', 'rails', 'custom/geocomplete', 'custom/institution.js' %>
-    <%= GMap.header(:with_vml => false, :host => request.host).html_safe %>
-
+    <%= raw(GMap.header) %>
+    <%= raw(@map.to_html) if @map %>
     <%= javascript_include_tag 'swfobject' %>
     <%= javascript_include_tag 'jwplayer' %>
 
     <%= yield :audio_player %>
-    <%= raw @map.to_html if @map%>
+
     <%= csrf_meta_tag %>
 
   </head>
@@ -22,9 +22,10 @@
     <!-- cont -->
     <div class="cont header-bg">
 
-      <div class="wrapper">
-
+      <div class="wrapper">        
         <%= render 'layouts/header' %>
+        <p style="color: green"><%= notice %></p>
+        <p style="color: red"><%= alert %></p>
         <%= yield %>
 
       </div>
@@ -32,6 +33,6 @@
     <!-- /cont -->
 
     <%= render 'layouts/footer' %>
-</body>
+  </body>
 </html>
 

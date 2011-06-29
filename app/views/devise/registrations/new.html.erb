@@ -52,16 +52,16 @@
     <div class="bio-detials-register"> <%= f.text_field :email %> </div>
 
     <div class="bio-detials-register">  <%= f.label :password %></div>
-    <div class="bio-detials-register"> <%= f.text_field :password %> </div>
+    <div class="bio-detials-register"> <%= f.password_field :password %> </div>
 
     <div class="bio-detials-register">  <%= f.label :password_confirmation %></div>
-    <div class="bio-detials-register"> <%= f.text_field :password_confirmation %> </div>
+    <div class="bio-detials-register"> <%= f.password_field :password_confirmation %> </div>
 
     
   <%= fields_for :user_profile do |up| %>
 
     <div class="bio-detials-register">  <%= up.label :country %></div>
-    <div class="bio-detials-register"> <%= up.select :country, options_from_collection_for_select(Country.all, "id", "code", Country.find_by_code("US").id) %> </div>
+    <div class="bio-detials-register"> <%= up.select :country, options_from_collection_for_select(Country.all, "id", "name", Country.find_by_code("US").id) %> </div>
 
     <div class="bio-detials-register">  <%= up.label :postal_code %></div>
     <div class="bio-detials-register"> <%= up.text_field :postal_code%> </div>

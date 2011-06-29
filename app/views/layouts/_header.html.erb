@@ -1,43 +1,70 @@
 
-        <!-- header -->
-        <div class="header">
+<!-- header -->
+<div class="header">
 
-          <div class="toplink-cont">
-            <a href="#" class="top-link">Forum</a>
-            <a href="#" class="top-link">Resources</a>
-            <a href="#" class="top-link">My Studio</a>
-            <a href="#" class="top-link">Spotlight</a>
-            <a href="#" class="top-link">Mingle</a>
-            <a href="#" class="top-link-s">Search</a>
-          </div>
+  <div class="toplink-cont">
+    <a href="#" class="top-link">Forum</a>
+    <a href="#" class="top-link">Resources</a>
+    <a href="#" class="top-link">My Studio</a>
+    <a href="#" class="top-link">Spotlight</a>
+    <a href="#" class="top-link">Mingle</a>
+    <a href="#" class="top-link-s">Search</a>
+  </div>
 
-          <a href="#" class="logo"></a>
+  <a href="/" class="logo"></a>
 
-          <div class="frawh mt30">
-            <div class="email-txtbox"><input name="" type="text" class="textbox" value="email"></div>
+  <div class="frawh mt30">
+    <% unless user_signed_in? %>
 
-            <div class="password-txtbox ml5"><input name="" type="text" class="textbox" value="password"></div>
+  <%#= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div class="email-txtbox">
+        <input name="" type="text" class="textbox" value="email"/>
+  <%#= f.text_field :email, :value => "Email", :class => "textbox", :onclick => "hideShowValue(this,'Email','hide');", :onblur => "hideShowValue(this,'Email','show');"  %>
+      </div>
 
-            <a href="#" class="top-btn ml5">
-              <div class="left"></div>
-              <div class="midde">Login</div>
-              <div class="right"></div>
-            </a>
-            <a href="/users/register" class="top-btn ml10">
-              <div class="left"></div>
-              <div class="midde">Join Us</div>
-              <div class="right"></div>
-            </a>
+      <div class="password-txtbox ml5">
+        <input name="" type="text" class="textbox" value="email"/>
+  <%#= f.password_field :password, :value => "Password", :class => "textbox", :onclick => "hideShowValue(this,'Password','hide');", :onblur => "hideShowValue(this,'Password','show');"  %>
+      </div>
 
-            <a href="#" class="top-btn ml20">
-              <div class="left"></div>
-              <div class="midde">About Us</div>
-              <div class="right"></div>
-            </a>
+      <a href="javascript:void(0);" class="top-btn ml5" onclick="$('.user_new').submit();">
+        <div class="left"></div>
+        <div class="midde">Login</div>
+        <div class="right"></div>
+      </a>
+  <%# end %>
 
-            <a href="#" class="facebook"></a>
-            <a href="#" class="twitter"></a>
-          </div>
+      <a href="/users/register" class="top-btn ml10">
+        <div class="left"></div>
+        <div class="midde">Join Us</div>
+        <div class="right"></div>
+      </a>
+    <% else %>
+      <a href="<%= destroy_user_session_path %>" class="top-btn ml5">
+        <div class="left"></div>
+        <div class="midde">Logout</div>
+        <div class="right"></div>
+      </a>
+      <a href="<%= friends_user_profiles_path %>" class="top-btn ml5">
+        <div class="left"></div>
+        <div class="midde">Friends</div>
+        <div class="right"></div>
+      </a>
+      <a href="<%= user_profile_path(current_user.user_profile) %>" class="top-btn ml20">
+        <div class="left"></div>
+        <div class="midde">Profile</div>
+        <div class="right"></div>
+      </a>
+      <a href="/users/members" class="top-btn ml20">
+        <div class="left"></div>
+        <div class="midde">Members</div>
+        <div class="right"></div>
+      </a>
+    <% end %>
 
-        </div>
-        <!-- /header -->
+    <a href="#" class="facebook"></a>
+    <a href="#" class="twitter"></a>
+  </div>
+
+</div>
+<!-- /header -->

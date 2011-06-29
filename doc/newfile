@@ -1,0 +1,73 @@
+ssh root@184.173.199.130
+94hVn3Rk
+
+./configure --with-openssl-dir="/root/local/openssl-0.9.8d"
+
+ky3564
+u4cN2s9q
+
+Username: admin
+Password: 8bv92Va2
+
+
+Installation instructions for required software
+
+ * To install GNU C++ compiler:
+   Please run yum install gcc-c++ as root.
+
+ * To install Curl development headers with SSL support:
+   Please run yum install curl-devel as root.
+
+ * To install OpenSSL development headers:
+   Please run yum install openssl-devel as root.
+
+ * To install Zlib development headers:
+   Please run yum install zlib-devel as root.
+
+ * To install OpenSSL support for Ruby:
+   Please (re)install Ruby with OpenSSL support by downloading it from http://www.ruby-lang.org/.
+
+ * To install Apache 2 development headers:
+   Please run yum install httpd-devel as root.
+
+ * To install Apache Portable Runtime (APR) development headers:
+   Please run yum install apr-devel as root.
+
+ * To install Apache Portable Runtime Utility (APU) development headers:
+   Please run yum install apr-util-devel as root.
+
+If the aforementioned instructions didn't solve your problem, then please take
+a look at the Users Guide:
+
+  /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.7/doc/Users guide Apache.html
+
+   LoadModule passenger_module /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.7/ext/apache2/mod_passenger.so
+   PassengerRoot /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.7
+   PassengerRuby /usr/local/bin/ruby
+
+
+   <VirtualHost *:80>
+      ServerName www.yourhost.com
+      DocumentRoot /somewhere/public    # <-- be sure to point to 'public'!
+      <Directory /somewhere/public>
+         AllowOverride all              # <-- relax Apache security settings
+         Options -MultiViews            # <-- MultiViews must be turned off
+      </Directory>
+   </VirtualHost>
+
+www.musociety.com
+
+<virtualhost *:80>
+        RailsEnv development
+        ServerName www.musociety.com
+        ServerAlias www.musociety.com
+        DocumentRoot /var/www/website/public
+        <directory /var/www/website/public>
+                AllowOverride all
+                Options -MultiViews
+        </directory>
+</virtualhost>
+   LoadModule passenger_module
+/usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.7/ext/apache2/mod_passenger.so
+   PassengerRoot /usr/local/lib/ruby/gems/1.9.1/gems/passenger-3.0.7
+   PassengerRuby /usr/local/bin/ruby

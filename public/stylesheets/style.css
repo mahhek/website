@@ -1,6 +1,6 @@
 
 
-body { font-size:1px; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0 0 1px 0; }
+body { font-size:12px; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0 0 1px 0; }
 
 a { outline:none; border:0px; }
 a img { border:none; }
@@ -196,3 +196,10 @@ a img { border:none; }
     width: 100%;
     margin-top:10px;
 }
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }

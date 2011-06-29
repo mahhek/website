@@ -1,0 +1,26 @@
+<h1>
+  Members
+</h1>
+<div style="float: left;width: 100%;">
+
+  <% @users.each do | user | %>
+
+    <div style="float: left; margin: 10px;">
+      <%= image_tag user.user_profile.picture.url(:'150') %>
+    </div>
+
+    <div style="float: left; margin: 10px;">
+      <%=  user.roles.collect(&:name).to_sentence if (user.roles.size > 0) %>
+      <%= if !user.user_profile.location.nil?
+        "(#{user.user_profile.location.city})"
+      end   %>
+    </div>
+
+    <div style="float: left; margin: 10px;">
+      <%= link_to "Connect", user_profile_path(user.user_profile) %>
+    </div>
+
+
+  <%end%>
+
+</div>

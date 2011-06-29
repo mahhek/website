@@ -1,4 +1,4 @@
-Website::Application.configure do
+Musociety::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -24,3 +24,4 @@ Website::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 end
 
+SITE_URL = "localhost:3000"

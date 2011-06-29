@@ -1,0 +1,16 @@
+<div style="margin: 10px;">
+  <%= semantic_form_for([@user_profile, @invitee]) do |f| %>
+    <h2>
+      Send invitation to '<%= @user_profile.name %>'.
+    </h2>
+
+    <% f.inputs do %>
+      <%= f.input :message, :label => t(:personal_message), :input_html => {:size => "60x3"} %>
+    <% end %>
+
+    <%f.buttons do%>
+      <%= f.commit_button "Send Invitation" %>
+    <% end %>
+
+  <%end%>
+</div>

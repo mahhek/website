@@ -1,4 +1,4 @@
-Website::Application.configure do
+Musociety::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The production environment is meant for finished, "live" apps.
@@ -50,7 +50,8 @@ Website::Application.configure do
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
-  config.action_mailer.default_url_options = { :host => 'website-musician.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'musociety-musician.heroku.com' }
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 end
+SITE_URL = "www.musociety.com"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110623210710) do
+ActiveRecord::Schema.define(:version => 20110629133458) do
 
   create_table "audio_attachments", :force => true do |t|
     t.integer  "user_id"
@@ -64,6 +64,21 @@ ActiveRecord::Schema.define(:version => 20110623210710) do
     t.integer "instrument_id"
     t.integer "user_id"
   end
+
+  create_table "invites", :force => true do |t|
+    t.integer  "user_id",                           :null => false
+    t.integer  "user_id_target",                    :null => false
+    t.string   "code"
+    t.text     "message"
+    t.boolean  "is_accepted",    :default => false
+    t.datetime "accepted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invites", ["code"], :name => "index_invites_on_code"
+  add_index "invites", ["user_id"], :name => "index_invites_on_user_id"
+  add_index "invites", ["user_id_target"], :name => "index_invites_on_user_id_target"
 
   create_table "locations", :force => true do |t|
     t.string   "address"
@@ -139,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20110623210710) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "maiden_name"
+    t.string   "invite_token"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "username"

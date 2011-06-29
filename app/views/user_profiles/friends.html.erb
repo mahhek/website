@@ -1,29 +1,63 @@
 <div style="float: left;padding: 5px;">
-  <h2><%= t(:my_friends) %></h2>
-  <ul>
-    <%unless @user.friends.blank?%>
-      <% @user.friends.each do |friend| %>
-        <li style="list-style: square;">
-          <%= link_to friend.user_profile.name, user_profile_path(friend.user_profile) %>
-        </li>
-      <% end %>
-    <%end%>
-  </ul>
-  <h2><%= t(:sent_invitations) %></h2>
-  <ul>
-    <% @invites_out.each do |invite| %>
-      <li><%= link_to invite.user_target.user_profile.name, user_profile_path(invite.user_target.user_profile) %>
-        <%= link_to t(:cancel_invitation), user_profile_invite_path(invite.user_target.user_profile,current_user.user_profile), :method => "delete", :confirm => "Are you sure?", :class => 'blue' %>
-      </li>
-    <% end %>
-  </ul>
-  <h2><%= t(:received_invitations) %></h2>
-  <ul>
-    <% @invites_in.each do |invite| %>
-      <li><%= link_to invite.user.user_profile.name, user_profile_path(invite.user.user_profile) %>
-        <%= link_to t(:accept_invitation), "http://#{SITE_URL}/invitation/#{invite.code}", :class => 'blue'%>
-      </li>
-    <% end %>
-  </ul>
+  <div style="float: left;padding: 5px;width: 100%;">
+    <h2 style="float: left;">My Connections</h2>
+    <div style="float: left;padding: 5px;width: 100%;">
+      <ul style="float: left;">
+        <%unless @user.friends.blank?%>
+          <% @user.friends.each do |friend| %>
+            <li style="list-style: square;float: left;">
+              <%= link_to friend.user_profile.name, user_profile_path(friend.user_profile) %>
+            </li>
+          <% end %>
+        <% else %>
+          <li style="list-style: square;float: left;">
+            Not connected to any one yet!
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+
+  <br/>
+  <div style="float: left;padding: 5px;width: 100%;">
+    <h2 style="float: left;">Invitations Sent</h2>
+    <div style="float: left;padding: 5px;width: 100%;">
+      <ul style="float: left;">
+        <%unless @invites_out.blank?%>
+          <% @invites_out.each do |invite| %>
+            <li style="list-style: square;float: left;">
+              You invite <%= link_to invite.user_target.user_profile.name, user_profile_path(invite.user_target.user_profile) %> to get connected with you, If you don't want to proceed please
+              <%= link_to "Cancel Invitation", user_profile_invite_path(invite.user_target.user_profile,current_user.user_profile), :method => "delete", :confirm => "Are you sure?", :class => 'blue' %>
+            </li>
+          <% end %>
+        <% else %>
+          <li style="list-style: square;float: left;">
+            Not invite anyone to connect!
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
+
+  <br/>
+  <div style="float: left;padding: 5px;width: 100%;">
+    <h2 style="float: left;">Received Invitations</h2>
+    <div style="float: left;padding: 5px;width: 100%;">
+      <ul style="float: left;">
+        <%unless @invites_in.blank?%>
+          <% @invites_in.each do |invite| %>
+            <li style="list-style: square;float: left;">
+              <%= link_to invite.user.user_profile.name, user_profile_path(invite.user.user_profile) %> Invites you,
+              <%= link_to "Accept Invitation", "http://#{SITE_URL}/invitation/#{invite.code}", :class => 'blue'%> to get connected.
+            </li>
+          <% end %>
+        <% else %>
+          <li style="list-style: square;float: left;">
+            Not receive any invitation to connect!
+          </li>
+        <%end%>
+      </ul>
+    </div>
+  </div>
 
 </div>

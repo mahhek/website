@@ -18,3 +18,23 @@
       end   %></p>
   </div>
 </div>
+<% unless current_user == @user_profile.user %>
+  <% if !(current_user.invites_out.where("(is_accepted is null or is_accepted = ?) AND user_id_target =?",false,@user_profile.user_id).blank?) %>
+    <div class="z_cv_no_data">
+      <p><%= t(:invitation_already_sent) %> (<%= link_to t(:cancel_invitation), user_profile_invite_path(@user_profile,current_user.user_profile), :method => "delete", :confirm => "Are you sure?", :class => 'blue' %>)</p>
+    </div>
+  <% elsif !(current_user.invites_in.where("(is_accepted is null or is_accepted = ?) AND user_id =?",false,@user_profile.user_id).blank?) %>
+    <div class="z_cv_no_data">
+      <% invite = current_user.invites_in.where("(is_accepted is null or is_accepted = ?) AND user_id =?",false,@user_profile.user_id).first %>
+      <p><%= t(:invitation_already_received) %> (<%= link_to t(:accept_invitation), "http://#{SITE_URL}/invitation/#{invite.code}", :class => 'blue' %>)</p>
+    </div>
+  <% elsif !current_user.friends.include?(@user_profile.user) %>
+    <div class="z_cv_no_data">
+      <p><%= link_to "Connect with this person", new_user_profile_invite_path(@user_profile), :class => 'actionize' %></p>
+    </div>
+  <% else current_user.friends.include?(@user_profile.user)%>
+    <div class="z_cv_no_data">
+      <p><%= link_to t(:delete_this_person_from_network), user_profile_invite_path(@user_profile,current_user.user_profile), :method => "delete", :confirm => "Are you sure?", :class => 'actionize' %> </p>
+    </div>
+  <% end %>
+<% end %>

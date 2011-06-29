@@ -1,0 +1,23 @@
+<p>
+  <b>
+    <%= t(:dear) %>&nbsp;<%= @receiver.fullname %>
+  </b>
+</p>
+<p>
+<h2>
+  <%= @sender.fullname %>&nbsp;<%= t(:wants_to_add_you_in_its_network)%>
+</h2>
+
+<span>
+  "<%= h(@message) %>"
+</span>
+
+<div style="width:100%;">
+  <%= t(:please_confirm_or_deny_by_clicking_the_link_below) %>
+</div>
+
+<div style="width:100%;">
+  <%= link_to @url, @url %>
+</div>
+
+</p>

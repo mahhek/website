@@ -1,47 +1,201 @@
-html, body {border: 0; margin: 0; padding: 0;}
 
-body {
-    font: 85%/0.9 arial, helvetica, sans-serif;
-    line-height: 130%;
+
+body { font-size:14px; font-family:Arial, Helvetica, sans-serif; margin:0; padding:0 0 1px 0; }
+
+a { outline:none; border:0px; }
+a img { border:none; }
+
+.cont { width:100%; height:auto; overflow:hidden; text-align:center; }
+.wrapper { width:1195px; height:auto; overflow:hidden; margin:0 auto; }
+
+.header-bg { background:url(../images/header-bg.jpg) top center repeat-x; }
+
+.bold { font-weight:bold; }
+.italic { font-style:italic; }
+
+.frawh { width:auto; height:auto; float:right; overflow:hidden; }
+.flawh { width:auto; height:auto; float:left; overflow:hidden; }
+
+.mt10 { margin-top:10px; }
+.mt15 { margin-top:15px; }
+.mt20 { margin-top:20px; }
+.mt30 { margin-top:30px; }
+
+.ml5 { margin-left:5px; }
+.ml10 { margin-left:10px; }
+.ml15 { margin-left:15px; }
+.ml20 { margin-left:20px; }
+.ml25 { margin-left:25px; }
+.ml50 { margin-left:50px; }
+
+
+.home-bg-red { background:url(../images/home-bg-red.png) top center no-repeat; }
+.home-bg-green { background:url(../images/home-bg-green.png) top center no-repeat; }
+.home-bg-yellow { background:url(../images/home-bg-yellow.png) top center no-repeat; }
+.home-bg-purple { background:url(../images/home-bg-purple.png) top center no-repeat; }
+.home-bg-blue { background:url(../images/home-bg-blue.png) top center no-repeat; }
+
+.page-bg-purple { background:url(../images/page-bg-purple.png) top center no-repeat; }
+
+
+
+
+/********************************************* Header ************************************************/
+
+.header { width:100%; height:auto; float:left; overflow:hidden; padding-bottom:40px; }
+.header .toplink-cont { width:100%; height:38px; float:left; overflow:hidden; }
+.header .toplink-cont .top-link { width:auto; height:38px; float:right; overflow:hidden; font-size:11px; color:#ffffff; line-height:38px; font-weight:bolder; letter-spacing:1px; text-transform:uppercase; text-decoration:none; margin-left:75px; }
+.header .toplink-cont .top-link-s { width:auto; height:38px; float:right; overflow:hidden; font-size:11px; color:#ffffff; line-height:38px; font-weight:bolder; letter-spacing:1px; text-transform:uppercase; text-decoration:none; margin-left:75px; background:url(../images/top-link-bullet.png) bottom center no-repeat; }
+
+.header .logo { width:266px; height:120px; float:left; overflow:hidden; background:url(../images/musociety-logo.png) 0 0 no-repeat; margin-top:20px; }
+
+.email-txtbox { width:144px; height:19px; float:left; overflow:hidden; background:url(../images/header-email-txtbox.png) 0 0 no-repeat; }
+.email-txtbox .textbox { width:144px; height:19px; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:10px; color:#000000; text-align:left; line-height:20px; font-style:italic; letter-spacing:1px; padding:0 5px; border:none; background:transparent; }
+
+.password-txtbox { width:93px; height:19px; float:left; overflow:hidden; background:url(../images/header-pass-txtbox.png) 0 0 no-repeat; }
+.password-txtbox .textbox { width:93px; height:19px; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:10px; color:#000000; text-align:left; line-height:20px; font-style:italic; letter-spacing:1px; padding:0 5px; border:none; background:transparent; }
+
+.top-btn { width:auto; height:19px; float:left; overflow:hidden; text-decoration:none; }
+.top-btn .left { width:6px; height:19px; float:left; overflow:hidden; background:url(../images/top-btn-bg.png) 0 0 no-repeat; }
+.top-btn .midde { width:auto; height:19px; float:left; overflow:hidden; background:url(../images/top-btn-bg.png) 0 -19px repeat-x; font-size:9px; color:#ffffff; line-height:20px; text-transform:uppercase; text-decoration:none; letter-spacing:2px; font-weight:bold; }
+.top-btn .right { width:6px; height:19px; float:left; overflow:hidden; background:url(../images/top-btn-bg.png) 0 -38px no-repeat; }
+
+.facebook { width:20px; height:19px; float:left; overflow:hidden; background:url(../images/facebook-icon.png) 0 0 no-repeat; margin-left:20px; }
+.twitter { width:20px; height:19px; float:left; overflow:hidden; background:url(../images/twitter-icon.png) 0 0 no-repeat; margin-left:7px; }
+
+
+
+/********************************************* middle ************************************************/
+
+.middle { width:100%; height:auto; float:left; overflow:hidden; }
+
+.table-cor-left-top { width:18px; height:17px; background:url(../images/black-box-corners.png) 0 0 no-repeat; }
+.table-cor-right-top { width:18px; height:17px; background:url(../images/black-box-corners.png) -18px 0 no-repeat; }
+.table-cor-left-bot { width:18px; height:17px; background:url(../images/black-box-corners.png) 0 -17px no-repeat; }
+.table-cor-right-bot { width:18px; height:17px; background:url(../images/black-box-corners.png) -18px -17px no-repeat; }
+
+.expand-icon { width:15px; height:15px; float:right; overflow:hidden; background:url(../images/expand-icon.jpg) 0 0 no-repeat; }
+
+.searchbox { width:163px; height:25px; float:left; overflow:hidden; background:url(../images/search-txtbox.png) 0 0 no-repeat; }
+.searchbox .textbox { width:163px; _width:149px; height:25px; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:11px; color:#5d5d5d; line-height:24px; text-align:left; font-style:italic; padding:0 7px; border:none; background:transparent; }
+
+.search-btn { width:25px; height:25px; float:left; overflow:hidden; background:url(../images/search-btn.png) 0 0 no-repeat; }
+
+.searh-detail-cont { width:100px; height:auto; float:left; overflow:hidden; margin-top:20px; }
+
+.search-detial-text { width:100%; height:18px; float:left; overflow:hidden; font-size:11px; color:#ffffff; text-align:left; font-weight:bold; line-height:18px; margin-top:6px; text-transform:uppercase; }
+.search-detial-text span { font-size:9.5px; color:#a2a2a2; }
+
+.checkbox { width:15px; height:15px; float:left; overflow:hidden; margin-top:0; padding-top:0; margin-right:10px; }
+
+.filter-btn { width:100%; height:21px; float:left; overflow:hidden; margin-top:8px; text-decoration:none; }
+.filter-btn .left { width:11px; height:21px; float:left; overflow:hidden; background:url(../images/filter-btn-bg.png) 0 0 no-repeat; }
+.filter-btn .middle { width:auto; height:21px; float:left; overflow:hidden; background:url(../images/filter-btn-bg.png) 0 -21px repeat-x; font-family:Georgia, "Times New Roman", Times, serif; font-size:9.5px; color:#000000; line-height:21px; font-style:italic; font-weight:bold; }
+.filter-btn .right { width:11px; height:21px; float:left; overflow:hidden; background:url(../images/filter-btn-bg.png) 0 -42px no-repeat; }
+
+.home-what-title { width:230px; height:auto; float:left; overflow:hidden; font-size:11px; color:#000000; text-align:left; line-height:24px; font-weight:bold; text-transform:uppercase; }
+.home-what-text { width:230px; height:auto; float:left; overflow:hidden; font-size:11px; color:#000000; text-align:left; line-height:16px; margin-top:15px; }
+
+.read-more-btn { width:auto; height:25px; float:left; overflow:hidden; text-decoration:none; }
+.read-more-btn .left { width:7px; height:25px; float:left; overflow:hidden; background:url(../images/readmore-btn.jpg) 0 0 no-repeat; }
+.read-more-btn .middle { width:auto; height:25px; float:left; overflow:hidden; background:url(../images/readmore-btn.jpg) 0 -25px repeat-x; font-family:Georgia, "Times New Roman", Times, serif; font-size:11px; color:#ffffff; font-weight:bold; font-style:italic; line-height:25px; }
+.read-more-btn .right { width:7px; height:25px; float:left; overflow:hidden; background:url(../images/readmore-btn.jpg) 0 -50px no-repeat; }
+
+.connect-btn { width:auto; height:25px; float:left; overflow:hidden; text-decoration:none; }
+.connect-btn .left { width:7px; height:25px; float:left; overflow:hidden; background:url(../images/readmore-btn.jpg) 0 0 no-repeat; }
+.connect-btn .middle { width:auto; height:25px; float:left; overflow:hidden; background:url(../images/readmore-btn.jpg) 0 -25px repeat-x; font-size:10px; color:#ffffff; font-weight:bold; line-height:25px; text-transform:uppercase; }
+.connect-btn .right { width:7px; height:25px; float:left; overflow:hidden; background:url(../images/readmore-btn.jpg) 0 -50px no-repeat; }
+
+.middle-left-col { width:240px; height:auto; float:left; overflow:hidden; }
+.middle-center-col { width:295px; height:auto; float:left; overflow:hidden; margin-left:55px; }
+.middle-right-col { width:540px; height:auto; float:left; overflow:hidden; margin-left:60px; }
+
+.connect-url { width:auto; height:auto; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:12px; color:#000; text-align:left; font-weight:bold; font-style:italic; line-height:24px; margin-top:15px; text-decoration:none; }
+
+.divider { width:100%; height:6px; float:left; overflow:hidden; background:#000; }
+
+.ppl { width:49px; height:49px; float:left; overflow:hidden; margin-left:14px; margin-top:15px; }
+.ppl-left { width:49px; height:49px; float:left; overflow:hidden; margin-top:15px; }
+
+.artist-name { width:100%; height:auto; float:left; overflow:hidden; font-size:18px; color:#000; text-align:left; font-weight:bold; line-height:26px; }
+.artist-type { width:100%; height:auto; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:18px; color:#000; text-align:left; font-style:italic; line-height:26px; }
+.artist-words { width:100%; height:auto; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:30px; color:#000; text-align:left; font-style:italic; line-height:36px; margin-top:20px; }
+.btn-recommand { width:auto; height:auto; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:16px; color:#000; text-align:left; font-style:italic; line-height:24px; margin-top:20px; background:url(../images/plus-icon.png) left center no-repeat; padding-left:24px; text-decoration:none;  }
+
+.bio-title { width:100%; height:auto; float:left; overflow:hidden; font-size:13px; color:#000; text-align:left; font-weight:bold; line-height:26px; margin-top:20px; text-transform:uppercase; }
+.bio-subtle { width:100%; height:auto; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:13px; color:#000; text-align:left; line-height:26px; margin-top:15px; font-style:italic; }
+.bio-detials { width:100%; height:auto; float:left; overflow:hidden; font-size:11px; color:#000; text-align:left; line-height:14px; }
+.bio-detials span { line-height:18px; }
+
+.upcoming-event { width:100%; height:auto; float:left; overflow:hidden; font-size:11px; color:#000; text-align:left; font-weight:bold; line-height:16px; margin-top:20px; }
+.upcoming-event span { font-family:Georgia, "Times New Roman", Times, serif; font-size:13px; font-style:italic; }
+
+.previous-track { width:14px; height:21px; float:left; overflow:hidden; background:url(../images/previous-track.png) center center no-repeat; margin-top:2px; }
+.play-track { width:19px; height:21px; float:left; overflow:hidden; background:url(../images/play.png) center center no-repeat; margin-left:11px; margin-top:2px; }
+.forward-track { width:14px; height:21px; float:left; overflow:hidden; background:url(../images/forward-track.png) center center no-repeat; margin-left:9px; margin-top:2px; }
+
+.track-title { width:115px; height:14px; float:left; overflow:hidden; font-size:9px; color:#ffffff; text-align:left; line-height:14px; font-weight:bold; text-transform:uppercase; margin-left:20px; }
+.track-artist { width:115px; height:14px; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:9px; color:#ffffff; text-align:left; line-height:14px; font-weight:bold; font-style:italic; margin-left:20px; }
+
+.track-timeline { width:122px; height:11px; float:left; overflow:hidden; background:url(../images/song-timeline.png) top center no-repeat; margin-top:10px; }
+.track-volume { width:14px; height:11px; float:left; overflow:hidden; background:url(../images/volume.png) top center no-repeat; margin:10px 0 0 10px; }
+.track-time { width:auto; height:14px; float:left; overflow:hidden; font-size:8px; color:#ffffff; text-align:left; line-height:11px; font-weight:bold; margin:10px 0 0 7px; }
+
+
+
+/********************************************** chat box *********************************************/
+
+.chatbox { width:203px; height:auto; float:left; overflow:hidden; }
+
+.chat { width:100%; height:26px; float:left; overflow:hidden; font-size:10px; color:#ffffff; text-align:center; font-weight:bold; text-transform:uppercase; line-height:26px; background-color:#000; text-decoration:none; }
+.chat span { font-family:Georgia, "Times New Roman", Times, serif; font-style:italic; text-transform:none; }
+
+.chat-ppl-cont { width:100%; height:auto; float:left; overflow:hidden; background:#f6f6f6; padding:12px 0; }
+.chat-ppl { width:100%; height:auto; float:left; overflow:hidden; margin-top:5px; text-decoration:none; }
+.chat-ppl:hover { background-color:#999; }
+.chat-ppl .image { width:20px; height:20px; float:left; overflow:hidden; margin-left:25px; }
+.chat-ppl .name { width:auto; height:20px; float:left; overflow:hidden; font-size:10px; color:#000000; margin-left:15px; line-height:20px; }
+
+.chat-option-cont { width:100%; height:17px; float:left; overflow:hidden; background-color:#000; }
+.chat-option-cont .link { width:auto; height:17px; float:right; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:8px; color:#ffffff; font-weight:bold; font-style:italic; line-height:17px; text-decoration:none; letter-spacing:1px; }
+.chat-option-cont .btn-cross { width:10px; height:17px; float:right; overflow:hidden; background:url(../images/chat-cross-icon.png) center center no-repeat; margin-left:15px; margin-right:7px; }
+
+
+
+/********************************************* footer ************************************************/
+
+.footer { background-color:#000; height:60px; margin-top:80px; }
+.footertext { width:auto; height:auto; float:left; overflow:hidden; font-family:Georgia, "Times New Roman", Times, serif; font-size:10px; color:#ffffff; line-height:18px; font-weight:bold; font-style:italic; margin-top:27px; }
+.footertext a { color:#ffffff; text-decoration:none; }
+
+.red-btn { width:16px; height:15px; float:left; overflow:hidden; background:#cf7570; margin-top:25px; margin-left:6px; }
+.yellow-btn { width:16px; height:15px; float:left; overflow:hidden; background:#ffe375; margin-top:25px; margin-left:6px; }
+.green-btn { width:16px; height:15px; float:left; overflow:hidden; background:#b9d180; margin-top:25px; margin-left:6px; }
+.blue-btn { width:16px; height:15px; float:left; overflow:hidden; background:#7f8ebb; margin-top:25px; margin-left:6px; }
+.purple-btn { width:16px; height:15px; float:left; overflow:hidden; background:#bb99c7; margin-top:25px; margin-left:6px; }
+
+
+
+
+
+.middle-center-col-register {
+    float: left;
+    height: auto;
+    margin-left: 55px;
+    overflow: hidden;
     width: 100%;
-    min-width: 970px;
-    color: black;
-
 }
-
-a {
-    color: #0099CC;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #00CCFF;
-}
-
-a img {
-    border: none;/*remove border for linked images*/
-}
-
-h1 {
-    font-size: 1.6em;
-    height: 20px;
-    padding-top: 0;
-}
-
-h2{
-    font-size: 1.2em;
-    height: 20px;
-    padding-top: 0;
-}
-
-#main-container{
-    background: none repeat scroll 0 0 #FFFFFF;
-    margin: 0 auto;
-    padding: 0 20px;
+.bio-detials-register {
+    color: #000000;
+    float: left;
+    font-size: 15px;
+    height: auto;
+    line-height: 14px;
+    overflow: hidden;
     text-align: left;
-    width: 850px;
+    width: 100%;
+    margin-top:10px;
 }
-
 
 /* css for timepicker */
 .ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }

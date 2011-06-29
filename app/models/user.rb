@@ -15,7 +15,10 @@ class User < ActiveRecord::Base
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
-  
+
+  acts_as_network :friends, :through => :invites, :foreign_key => 'user_id',
+    :association_foreign_key => 'user_id_target', :conditions => ["is_accepted = ?",true]
+
 	def self.search_for name
     words = name.split(' ')
     # must be a more elegant way
@@ -39,7 +42,15 @@ class User < ActiveRecord::Base
     end
 	end
 
+  def can_invite?
+    invites_out.where(["DATE(created_at) = Date(?)", Time.now]).count < 10
+  end
 
+  def fullname
+    n = (self.first_name + ' ' + self.last_name).strip
+    n.length() ? n :'n/a'
+  end
+  
   def musician?
     self.role?("Musician")
   end

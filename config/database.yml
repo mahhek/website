@@ -7,10 +7,10 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: website_development
+  database: musociety_development
   pool: 5
   username: root
-  password: "mahheki"
+  password: "123"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,17 +19,17 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: website_test
+  database: musociety_test
   pool: 5
   username: root
-  password: "mahheki"
+  password: "123"
 
 production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: website_production
+  database: musociety_production
   pool: 5
   username: root
-  password: mahheki 
+  password: "123"
 
